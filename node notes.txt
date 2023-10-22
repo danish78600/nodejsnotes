@@ -1,0 +1,161 @@
+
+npm init-initalise config file to node js program
+express is used to create backend with the help of node and javascrript
+express makes easier to make backend
+localhost is used when we dont have a server so we make a local server in our computer
+
+port is  a unique no that helps to run multiple apps differently without any confusion
+port is kind of door that is used to access something in computer
+
+HTTP-HYPER TEXT TRANSFER PROTOCOL
+langauge that helps the computer to talk to each other
+Http request vocabulary:-
+GET-when we req a resource from server
+POST-sending a resource to a server
+PUT-Update(replace)
+PATCH-update PATCH is used to apply partial updates to a resource
+DELETE-delete resource
+
+cannot get / - it means that we cannot get the resource
+
+nodemon-automatically restarts the node application
+
+in response to a request we can also send html tags 
+
+forward slash("/") represents the endpoint
+
+postman-used when we dont have to use put patch delete etc from frontend
+
+middleware-it works with the request until they reaches their final destination
+
+it can perform a no of functions with the request
+
+public folder contains the static files
+
+body-parser is a midlleware fro pre processing
+morgan is used for logging
+
+we can also create custom midllewares.
+
+next() means that i have completed and call the next app.use() middleware
+
+EJS-embedded javascript 
+we uses sendfile() instead of send() because in send we will have to pass html tags and css but in sendFile() we can simply send html filename
+this will help us to seperate the HTML CSS AND JAVASCRIPT which is known as templating
+
+to do this we need templating languages which is ejs for node js 
+we can render this by res.render("index.ejs",properties)
+
+we can declare data in js file and then with the use of ejs file we can get it
+
+PASSING DATA TO EJS TEMPLATE
+
+ The res. locals is an object that contains the local variables for the response which are scoped to the request only and therefore just available for the views rendered during that request or response cycle.
+
+PARTIALS AND LAYOUTS
+
+static files are created inside public folder to be used
+
+express.static("public")-inside it we can declare the location of static files
+
+to prevent the repeated code of html for e.g. navbar footbar we can use other features of ejs which is partials folder and inside it we can use include keyword enclosed in ejs tags
+
+<%- include("header.ejs") %>
+
+
+API-APPLICATION PROGRAMMINF INTERFACE
+
+helps 2 programs to interact with a  set of rules
+
+with api use if we wants other program information in our program then the other program api is going to be used.
+
+there are many api but mainly for web dev rest api is used.
+
+REST API'S-follow some rules:
+http protocol
+
+
+STRUCTURING API REQUESTS
+
+in the normal interaction of front end and back end a private api is used
+
+API ENDPOINT- baseurl/endpoint
+
+baseurl/endpoint?query=value&query2=value
+
+after base url their is an endpoint and after endpoint their is a query which is present in key value pairs
+and we can add more than one query by & operator
+
+baseurl/endpoint/{path-parameter}
+
+endpoint is fixed and after endpoint we can pass parameter which can be changed
+
+when we send req then the data comes back in json format
+
+JSON-JAVASCRIPT Object Notation
+
+json is somehow similar to javascript object
+
+to turn js obbject to json we will need serialization. whihc we can do  by JSON.STRINGIFY()
+
+and to change json to js object we can use JSON.parse()
+
+MAKING SERVER SIDE API REQUEST
+
+to make a req from one program to other if we use node then it will be difficult so we uses https request(module).
+
+and then the data we get is pass in the form of chunks 
+
+instead using node we can use axios module 
+
+Axios: Axios is a Javascript library used to make HTTP requests from node. js or XMLHttpRequests from the browser 
+
+axios make it easy to make http request to get,post,put,delete,patch the data form api
+
+AUTHENTICATION BY API
+
+it helps to protect the data which is behind api to not be accesible by everyone
+
+so the data will only be given to those who were authorized
+
+TYPES of authentication:
+basic-Basic Authentication is a method for an HTTP user agent (e.g., a web browser) to provide a username and password when making a request. When employing Basic Authentication, users include an encoded string in the Authorization header of each request they make.
+
+the username and pass is converted to base 64 which is in binary
+
+after getting data an authorization key is generated in the header. which we can decode by base 64 decode and it will generate the auth key to username:pass
+
+API KEY AUTHORIZATION:-
+
+ Authentication confirms that users are who they say they are(identifies). Authorization gives those users permission to access a resource.
+
+in this when we generate api key and then this api key is used to get the data .
+
+TOKEN BASED AUTHENTICATION
+
+in this we let the user to use username and pass to login and after that a token is generated which is used to interact with api
+
+REST API'S
+
+we can also use axios by chaining it  with .then() but it will triggered when the previous promises are resolved but the one method we have discussed is the modern syntax
+
+in axios.get there are 2 param 1st is api and 2nd is config
+
+but in axios.post() there are 3 values 1st-api 2nd-body 3rd-config
+
+put,patch req provide all data that we need to update in the backend
+
+delete takes 2 parameters 1st-url 2nd-config
+
+but in all above req config part is optional 
+
+
+BUILD YOUR OWN API
+
+why we pay for api
+large data collection 
+service
+simplified interafce
+
+
+

@@ -1,0 +1,119 @@
+authentication
+
+to attach each user with their data authentication is used so they can use usename and pass to login and get their informations
+
+it also restrict access to certain areas of website
+
+1st level of auth-by simply using username and pass for user to login which is bad because as its password are in plain text
+
+2nd level-database encryption
+
+it uses encryption which means scrambling each letter of the secret
+which makes it difficult for hacker to hack we will use mongoose-encryption
+
+but ceaser cipher is a week encryotion so we will use mongoose-encryption
+
+when we will call save then it will encrypt the data and when we call find then it will decrypt our data to check it
+
+
+to keep the secrets safe from the internet we will use dotenv
+
+.env uses environment varibales
+
+.env is a hidden file
+
+Why use env variables?
+Environment variables allow us to keep values on our local and production environments distinct and safe as we develop our app
+
+so the code inside .env is secure and when we have to deploy our web app to git then we can gitignore the env file to be safe and secure
+
+3RD-HASHING PASSWORDS
+
+encruption is no longer needed as hashing comes into play as we cna directly convert password to hash by hash function. and it is imposible to convert hash back into password 
+
+so when a user register then we hash that pass and store it in database so when the user login and give the pass so we again convert the pass into hash and matches it with the old hash and if they matches so we let user logged in
+
+so we will use md5 
+
+but after using hashing our pass can also be hacked 
+
+same passwords always converts into same hash
+
+so the pass can be hacked by converting common used pass to hash and then try to match the hash to the hash present in the database
+
+dictionary attack-so these pass also can be hacked by combining all letters nos special character and doing so will not take more than 1sec with a good computer
+
+but the pass cannot be cracked if it is strong as its hash cannot be found by the hacker
+
+4-SALTING AND HASHING PASS BY BECRYPT
+
+these are used to prevent dictionary attacks and is known as salting
+
+so the hash is now = password+salt
+
+Password salting is a technique to protect passwords stored in databases by adding a string of 32 or more characters and then hashing them.
+
+but we can also hack them as salt can be generated in one second 
+so instead of md5 we will use another hashing algorithm which is slow as in that hash tables are generated very slowly and this is known as becrpt
+
+we can also do more than one salt rounds means 
+hash1=pass+salt and then hash2=hash1+salt and so on
+
+Bcrypt is a cryptographic hash function designed for password hashing and safe storing in the backend of applications in a way that is less susceptible to dictionary-based cyberattacks.
+
+npm i bcrypt - this will be used
+
+5-COOKIES AND SESSIONS
+
+Cookies are small pieces of text sent to your browser by a website you visit. They help that website remember information about your visit, which can both make it easier to visit the site again and make the site more useful to you.
+
+we will use npm i
+passport 
+passport-local
+pasport-local-mongoose
+express-session
+
+serialise creates a cookie and deserialise and it stuff the message into cookie
+deserailise authenticate the message so as to identify it
+
+
+so this session and cookies will salt and hash our passport themseleves very easily
+
+but the cookies-pass,username are stored only for a session as when we close and restart the server the data will be deleted and we have to login again
+
+LEVEL6-OAUTH
+
+Open authorization token based
+
+take a scenario in which you have to logg in the linkdn but instead of doing so much task like filling name gmail password and other information we cna do this by a small button their-login with gmail whihc makes task of programmers easy
+
+so by this we dont have to manage the passwords as we delegate this task to large company like google or facebook
+
+but to do so we have to learn oAuth
+
+Oauth-:
+allow to granular level of access
+allows read or read write access
+revoke acess
+
+steps to do so
+1. setup app - telling the 3rd party apps such as fb,google about our website
+
+2 . redirecting to authenticate-as when one will come to our website then we will redirect them to fb so as to login .
+
+3. user logs in -so the user will login to fb .
+
+4.user grants permission-in this our web app will req permission from user 
+
+5. we will recieved authorization code from facebook
+
+or we can recieve access token which is good
+
+auth code is kind of a ticket
+but access token is a kind of id card
+
+npm install passport-google-oauth20
+we will use the above
+
+consent screen is that which is showed when the user has to login with google
+
